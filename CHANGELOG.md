@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.0.2](https://github.com/seantrane/commitlint-config-awesome/compare/v1.0.1...v1.0.2) (2019-02-14)
+
+
+### Bug Fixes
+
+* update usage documentation ([5e2e859](https://github.com/seantrane/commitlint-config-awesome/commit/5e2e859))
+
 ## [1.0.1](https://github.com/seantrane/commitlint-config-awesome/compare/v1.0.0...v1.0.1) (2019-02-14)
 
 
