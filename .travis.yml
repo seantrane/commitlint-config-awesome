@@ -20,7 +20,7 @@ install:
 stages:
   - test
   - name: deploy
-    if: repo = seantrane/commitlint-config
+    if: repo = seantrane/commitlint-config-awesome
         AND type != pull_request
         AND branch = master
 jobs:
@@ -29,7 +29,7 @@ jobs:
       name: 'Checks and Tests'
       script:
         - commitlint-travis
-        - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' seantrane/commitlint-config
+        - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' seantrane/commitlint-config-awesome
         - npm run lint
     - stage: deploy
       name: 'Publish and Release'
