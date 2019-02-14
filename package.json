@@ -37,6 +37,9 @@
     "markdownlint-cli": "^0.13.0",
     "semantic-release": "^15.13.3"
   },
+  "peerDependencies": {
+    "@commitlint/cli": "^7.0.0"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
