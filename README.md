@@ -44,7 +44,7 @@ Use the `"extends": "awesome"` property in your `commitlint` config, then add an
 ```json
 {
   "commitlint": {
-    "extends": "awesome"
+    "extends": ["awesome"]
   }
 }
 ```
@@ -53,21 +53,21 @@ Use the `"extends": "awesome"` property in your `commitlint` config, then add an
 
 ```json
 {
-  "extends": "awesome"
+  "extends": ["awesome"]
 }
 ```
 
 ### Using `.commitlintrc.yml` file
 
 ```yaml
-extends: awesome
+extends: [awesome]
 ```
 
 ### Using `commitlint.config.js`, `.commitlintrc.js` file
 
 ```js
 module.exports = {
-  extends: 'awesome'
+  extends: ['awesome']
 };
 ```
 
@@ -81,7 +81,7 @@ You can override the rules immediately following the `extends` property. See the
 
 ```json
 {
-  "extends": "awesome",
+  "extends": ["awesome"],
   "rules": {
     "header-max-length": [0, "always", 100]
   }
@@ -91,7 +91,7 @@ You can override the rules immediately following the `extends` property. See the
 ### Using YAML
 
 ```yaml
-extends: awesome
+extends: [awesome]
 rules:
   header-max-length: [0, 'always', 100]
 ```
@@ -100,7 +100,7 @@ rules:
 
 ```js
 module.exports = {
-  extends: 'awesome',
+  extends: ['awesome'],
   rules: {
     'header-max-length': [0, 'always', 100]
   }
