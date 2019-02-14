@@ -1,0 +1,37 @@
+language: node_js
+node_js:
+  - '8'
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
+  npm: true
+notifications:
+  email: false
+branches:
+  only:
+    - master
+before_install:
+  # package-lock.json was introduced in npm@5
+  - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
+  - npm install -g github-label-sync
+install:
+  - travis_retry npm install
+stages:
+  - test
+  - name: deploy
+    if: repo = seantrane/commitlint-config
+        AND type != pull_request
+        AND branch = master
+jobs:
+  include:
+    - stage: test
+      name: 'Checks and Tests'
+      script:
+        - commitlint-travis
+        - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' seantrane/commitlint-config
+        - npm run lint
+    - stage: deploy
+      name: 'Publish and Release'
+      script:
+        - npm run semantic-release
