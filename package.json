@@ -1,0 +1,88 @@
+{
+  "name": "commitlint-config-awesome",
+  "description": "An awesome variation of @commitlint/config-conventional",
+  "version": "0.0.0",
+  "author": "@seantrane",
+  "license": "ISC",
+  "homepage": "https://github.com/seantrane/commitlint-config-awesome#readme",
+  "repository": "github:seantrane/commitlint-config-awesome",
+  "bugs": "https://github.com/seantrane/commitlint-config-awesome/issues",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "config",
+    "commitlint"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "git:commit": "git-cz",
+    "lint:md": "markdownlint -i '**/node_modules/**' -c '.markdownlint.yaml' './'",
+    "lint": "npm run lint:md",
+    "semantic-release": "semantic-release",
+    "test": "exit 0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.1",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@commitlint/travis-cli": "^7.5.1",
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/git": "^7.0.8",
+    "commitizen": "^3.0.5",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.3.1",
+    "markdownlint-cli": "^0.13.0",
+    "semantic-release": "^15.13.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "header-max-length": [
+        0,
+        "always",
+        80
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ],
+    "prepare": [
+      {
+        "path": "@semantic-release/changelog",
+        "changelogTitle": "# CHANGELOG"
+      },
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "publish": [
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ],
+    "success": [
+      "@semantic-release/github"
+    ],
+    "fail": [
+      "@semantic-release/github"
+    ]
+  }
+}
