@@ -29,7 +29,7 @@ jobs:
       name: 'Checks and Tests'
       script:
         - commitlint-travis
-        - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' seantrane/commitlint-config-awesome
+        - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' seantrane/commitlint-config-awesome || echo "GitHub Labels could not be synced."
         - npm run lint
     - stage: deploy
       name: 'Publish and Release'
