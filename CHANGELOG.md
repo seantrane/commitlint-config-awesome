@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.0.4](https://github.com/seantrane/commitlint-config-awesome/compare/v1.0.3...v1.0.4) (2019-12-16)
+
+
+### Bug Fixes
+
+* **readme:** change url's in npm badges ([3ab1cde](https://github.com/seantrane/commitlint-config-awesome/commit/3ab1cde))
+
 ## [1.0.3](https://github.com/seantrane/commitlint-config-awesome/compare/v1.0.2...v1.0.3) (2019-12-16)
 
 
